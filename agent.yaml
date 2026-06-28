@@ -1,0 +1,17 @@
+spec_version: "0.1.0"
+name: superflow
+version: 0.1.0
+description: >-
+  Build a SuperFlow — a DETERMINISTIC, production-grade workflow as a node graph (vs a non-deterministic managerial agent). Use when the user has a repeatable, multi-step process with a known path.
+model:
+  preferred: high
+allowed_tools:
+  - create_workflow
+  - lyzr_pull
+  - lyzr_sync
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Skill
