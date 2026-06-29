@@ -36,9 +36,9 @@ that shape — NOT `tasks/edges`.
        "parameters":{"agent_id":"<real agent_id>","agent_name":"Approver"}}
     ],
     "connections": {
-      "New Application": { "main": [[{"node":"Intake & Validate"}]] },
-      "Intake & Validate": { "main": [[{"node":"Valid?"}]] },
-      "Valid?": { "main": [ [{"node":"Approve"}], [{"node":"Reject"}] ] }
+      "New Application": { "main": [[{"node":"Intake & Validate","type":"main","index":0}]] },
+      "Intake & Validate": { "main": [[{"node":"Valid?","type":"main","index":0}]] },
+      "Valid?": { "main": [ [{"node":"Approve","type":"main","index":0}], [{"node":"Reject","type":"main","index":0}] ] }
     }
   }
 }
@@ -52,7 +52,8 @@ that shape — NOT `tasks/edges`.
   agent must EXIST first (create it via the agent-creator, or author `lyzr/agents/<name>.json`
   + `lyzr_sync` to get a real id), THEN reference that id.
 - **`connections`** are keyed by source node **name**; `main` is an array of output
-  branches, each a list of `{ "node": "<target name>" }`. For an `if`, `main[0]` is the
+  branches, each a list of `{ "node": "<target name>", "type": "main", "index": 0 }`
+  (always include `type` + `index` so the edge connects). For an `if`, `main[0]` is the
   true branch and `main[1]` the false branch.
 - Keep it deterministic: add a `stopAndError` path; gate risky actions with `waitForApproval`.
 
