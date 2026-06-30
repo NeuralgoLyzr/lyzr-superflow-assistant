@@ -61,4 +61,12 @@ that shape — NOT `tasks/edges`.
 1. Ensure each `lyzr.agent` step references a **real agent_id** (create the agents first).
 2. Write `lyzr/workflows/<slug>.json` in the `{nodes, connections}` schema above.
 3. (Optional) validate with `create_workflow`.
-4. Push with `lyzr_sync`. It renders in the studio's SuperFlow viewer.
+4. Push with `lyzr_sync`.
+
+## It renders automatically — don't send the user away
+The moment you **Write `lyzr/workflows/<name>.json`** it renders LIVE in the studio's
+**SuperFlow** tab on the right (the file write is the trigger — so always Write the full
+file, not only call the API). When done, say it's ready and point the user to the
+**SuperFlow tab on the right**. NEVER tell them to open the external/cloud Lyzr studio or
+navigate to Workflows manually — it's already on their screen. If it isn't showing,
+re-Write the workflow file (that re-triggers the render).
